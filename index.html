@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         .header{
             background-image: url("https://www.blibli.com/friends/assets/masakan-indonesia-featured-696x464.jpg");
@@ -28,42 +30,97 @@
             text-decoration: none;
         }
 
-        /* Add a black background color to the top navigation */
-        .topnav {
-            background-color: chocolate;
+        .navbar {
             overflow: hidden;
-            position: relative;
-            width: 1330px;
-            top: 6px;
+            background-color: chocolate;
+            font-family: Roboto;
+            width: 1330px
         }
 
-        /* Style the links inside the navigation bar */
-        .topnav a {
+        .navbar a {
             float: left;
-            display: block;
+            font-size: 20px;
             color: white;
             text-align: center;
-            padding: 14px 134.8px;
+            padding: 14px 132.4px;
             text-decoration: none;
-            font-size: 1.373em;
-            font-family: Roboto;
         }
 
-        /* Change the color of links on hover */
-        .topnav a:hover {
-            background-color: #ddd;
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            cursor: pointer;
+            font-size: 20px;  
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 139px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+            background-color: rgba(255, 255, 253);
             color: black;
         }
 
-        /* Add an active class to highlight the current page */
-        .topnav a.active {
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 649px;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 20px 170px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            border-top: 0.5px solid white;
+            border-bottom: none;
+            border-right: none;
+            border-left: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .fa-youtube {
+            background: rgb(221, 149, 97);
+            color: white;
+            padding: 20px 20px;
+        }
+
+        .fa-instagram {
+            background: rgb(221, 149, 97);
             color: white;
         }
 
-        /* Hide the link that should open and close the topnav on small screens */
-        .topnav .icon {
-            display: none;
+        .fa-pinterest {
+            background: rgb(221, 149, 97);
+            color: white;
         }
+
+        .fa-snapchat-ghost {
+            background:  rgb(221, 149, 97);
+            color: white;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
 
         .sidebar{
             width: 269px;
@@ -171,13 +228,13 @@
         .rekomendasi{
             display: block;
             position: absolute;
-            width: 96%;
-            height: 5%;
-            font-size: 1.8em;
-            font-family: Staatliches;
-            padding: 2%;
+            width: 250px;
+            height: 4%;
+            font-size: 20px;
+            font-family: Roboto;
+            padding: 9px;
             background-color: chocolate;
-            text-align: center;
+            text-align: left;
             letter-spacing: 0.1em;
             color: white;
         }
@@ -185,7 +242,7 @@
         .rekomendasicontent{
             position: absolute;
             top: 85%;
-            font-size: 0.6em;
+            font-size: 18px;
             text-align: left;
             font-family: Roboto;
             letter-spacing: 0em;
@@ -197,19 +254,19 @@
             display: block;
             position: relative;
             top: 49%;
-            width: 96%;
-            height: 5%;
-            font-size: 1.8em;
-            font-family: Staatliches;
-            padding: 2%;
+            width: 250px;
+            height: 4%;
+            font-size: 20px;
+            font-family: Roboto;
+            padding: 9px;
             background-color: chocolate;
             letter-spacing: 0.1em;
             color: white;
-            text-align: center;
+            text-align: left;
         }
 
         .populercontent{
-            font-size: 0.6em;
+            font-size: 18px;
             text-align: left;
             font-family: Roboto;
             letter-spacing: 0em;
@@ -257,19 +314,44 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="topnav" id="myTopnav">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="myFunction()">Contacts
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="myDropdown">
+                <a href="#" class="fa fa-youtube"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-pinterest"></a>
+                <a href="#" class="fa fa-snapchat-ghost"></a>
+            </div>
+        </div>
+        <a href="#about">About</a>
+    </div>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(e) {
+          if (!e.target.matches('.dropbtn')) {
+          var myDropdown = document.getElementById("myDropdown");
+            if (myDropdown.classList.contains('show')) {
+              myDropdown.classList.remove('show');
+            }
+          }
+        }
+    </script>
 
 <div class = "sidebar">
     <div class="rekomendasi">
-        Rekomendasi
+        <b>Rekomendasi</b>
         <br>
         <div class="rekomendasicontent">
             <ul>
@@ -289,7 +371,7 @@
     <br>
 
     <div class="populer">
-        Populer
+        <b>Populer</b>
         <br>
         <div class="populercontent">
             <ol>
