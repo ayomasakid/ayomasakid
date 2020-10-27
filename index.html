@@ -47,7 +47,7 @@
             font-size: 20px;
             color: white;
             text-align: center;
-            padding: 14px 132.4px;
+            padding: 14px 124.8px;
             text-decoration: none;
         }
 
@@ -56,7 +56,7 @@
             overflow: hidden;
         }
 
-        .dropdown .dropbtn {
+        .dropdown .dropbtn{
             cursor: pointer;
             font-size: 20px;  
             border: none;
@@ -68,7 +68,19 @@
             margin: 0;
         }
 
-        .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+        .dropdown .dropbtn2{
+            cursor: pointer;
+            font-size: 20px;  
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 139px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus, .dropdown:hover .dropbtn2, .dropbtn2:focus{
             background-color: rgba(255, 255, 253);
             color: black;
         }
@@ -76,7 +88,7 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            left: 649px;
+            left: 660px;
             background-color: #f9f9f9;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -86,7 +98,7 @@
         .dropdown-content a {
             float: none;
             color: black;
-            padding: 20px 170px;
+            padding: 20px 179px;
             text-decoration: none;
             display: block;
             text-align: center;
@@ -100,8 +112,52 @@
             background-color: #ddd;
         }
 
+        .dropdown-content2 {
+            display: none;
+            position: absolute;
+            left: 310px;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content2 a {
+            float: none;
+            color: black;
+            padding: 20px 43px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            border-top: 0.5px solid white;
+            border-bottom: none;
+            border-right: none;
+            border-left: none;
+        }
+
+        .dropdown-content2 a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content2 {
+            display: block;
+        }
+
         .show {
             display: block;
+        }
+
+        .show2{
+            display: block;
+        }
+
+        .tugas {
+            color: white;
+            background: rgb(221, 149, 97);
         }
 
         .fa-youtube {
@@ -327,12 +383,20 @@
 
     <div class="navbar">
         <a href="#home">Home</a>
-        <a href="#news">News</a>
         <div class="dropdown">
-            <button class="dropbtn" onclick="myFunction()">Contacts
+            <button class="dropbtn" onclick="myFunction()">Tugas
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content" id="myDropdown">
+            <div class="dropdown-content2" id="myDropdown">
+                <a href="regis.html" class="tugas">Tugas Form</a>
+                <a href="calc.html" class="tugas">Tugas Perhitungan JavaScript</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn2" onclick="myFunction2()">Contacts
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="myDropdown2">
                 <a href="#" class="fa fa-youtube"></a>
                 <a href="#" class="fa fa-instagram"></a>
                 <a href="#" class="fa fa-pinterest"></a>
@@ -343,20 +407,31 @@
     </div>
 
     <script>
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
         function myFunction() {
           document.getElementById("myDropdown").classList.toggle("show");
         }
-        
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(e) {
-          if (!e.target.matches('.dropbtn')) {
-          var myDropdown = document.getElementById("myDropdown");
-            if (myDropdown.classList.contains('show')) {
-              myDropdown.classList.remove('show');
+
+        window.addEventListener('click', function(e) {
+            if (!e.target.matches('.dropbtn')) {
+            var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                myDropdown.classList.remove('show');
             }
           }
+        })
+
+        function myFunction2() {
+            document.getElementById("myDropdown2").classList.toggle("show");
+        }
+
+        window.onclick = function(e){
+            
+            if (!e.target.matches('.dropbtn2')){
+                var myDropdown2 = document.getElementById("myDropdown2");
+                if (myDropdown2.classList.contains('show')){
+                    myDropdown2.classList.remove('show');
+                }
+            }
         }
     </script>
 
